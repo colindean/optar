@@ -1,0 +1,17 @@
+#!/bin/sh
+while [ $# -gt 0 ]; do
+	target=`echo "$1" | sed -e 's/\.pgm$/.ps/'`
+	echo Converting "$1" to "$target"
+# We assume roughly 0.25 inch border (18) on each side.
+# A4 is 595.27559 x 841.889763 (595 x 842)
+# Letter is 8.5x11 inches or 612x792. 
+
+# Change to  556.56x807.12+19.22+17.44 for A4 and
+#	     573.84x755.28+19.08+18.36 for US Letter.
+#            Don't forget to change XCROSSES and YCROSSES in optar.h and
+#            recompile.
+	convert -page 556.56x807.12+19.22+17.44 "$1" "$target"
+#	convert -page 573.84x755.28+19.08+18.36 "$1" "$target"
+	shift
+done
+
