@@ -45,4 +45,4 @@ golay: golay.o parity.o
 	gcc $(LDFLAGS) -o $@ $^
 
 unoptar: unoptar.o common.o golay_codes.o parity.o
-	gcc $(LDFLAGS) -o $@ -L/usr/local/lib -lpng -lz $^
+	gcc -o $@ -L/usr/local/lib $^ -lm -lpng -lz
