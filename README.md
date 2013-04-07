@@ -1,6 +1,8 @@
 Twibright Optar
 ---------------
 
+[![Build Status](https://travis-ci.org/cnelsonsic/optar.png?branch=add_travisci)](https://travis-ci.org/cnelsonsic/optar)
+
 This is a program to store data on paper using a 600dpi b/w laser printer and a
 600+ dpi scanner.
 
