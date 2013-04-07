@@ -1,6 +1,8 @@
 Twibright Optar
 ---------------
 
+[![Build Status](https://travis-ci.org/cnelsonsic/optar.png?branch=add_travisci)](https://travis-ci.org/cnelsonsic/optar)
+
 This is a program to store data on paper using a 600dpi b/w laser printer and a
 600+ dpi scanner.
 
@@ -11,28 +13,28 @@ there is no unnecessary jitter).
 Make sure you have libpng installed and if you type "libpng-config" on the
 commandline, there's a program which prints something.
 
-Compile with "make". Become root (su -) and type "make install". Now you have
+Compile with ``make``. Become root ``su -`` and type ``make install``. Now you have
 optar, unoptar and pgm2ps installed on your system in /usr/local/bin. Later
-you can uninstall by typing "make uninstall" the same way as you typed
-"make install".
+you can uninstall by typing ``make uninstall`` the same way as you typed
+``make install``.
 
 Encoding (writing)
 ------------------
 Run
 
-./optar other_guys.ogg other_guys.ogg  
+``./optar other_guys.ogg other_guys.ogg``
 
 which will produce files:
 
-other_guys.ogg_0001.pgm
-other_guys.ogg_0002.pgm
-other_guys.ogg_0003.pgm
-other_guys.ogg_0004.pgm
-other_guys.ogg_0005.pgm
-other_guys.ogg_0006.pgm
+* other_guys.ogg_0001.pgm
+* other_guys.ogg_0002.pgm
+* other_guys.ogg_0003.pgm
+* other_guys.ogg_0004.pgm
+* other_guys.ogg_0005.pgm
+* other_guys.ogg_0006.pgm
 
 Now convert them into PostScript using the included pgm2ps tool:
-./pgm2ps *.pgm
+``./pgm2ps *.pgm``
 
 Print them using a 600dpi (or more) laser printer. Inkjet or dot matrix was
 never tested and will not probably work at the pre-defined data density. See
@@ -49,18 +51,18 @@ yellow pages on the scanner lid to get sharper picture *). Insert the
 page so that the text on the bottom is upright. Scan the pages into
 PNG (not JPEG!) on 600dpi (or 1200dpi, slightly better):
 
-scan_0001.png
-scan_0002.png
-scan_0003.png
-scan_0004.png
-scan_0005.png
-scan_0006.png
+* scan_0001.png
+* scan_0002.png
+* scan_0003.png
+* scan_0004.png
+* scan_0005.png
+* scan_0006.png
 
 Read the number sequence (format specification) from any of the papers and feed
 it as 1st argument to the optar, 2nd argument is the filename part before the
 underscore:
 
-unoptar 0-65-93-24-3-1-2-24 scan > out.ogg
+``unoptar 0-65-93-24-3-1-2-24 scan > out.ogg``
 
 Then play out.ogg with mplayer. You should get first about 41 seconds from the
 Ogg Vorbis file.
@@ -107,7 +109,7 @@ Future improvement
   camera. Currently it cannot since digital camera blurs at the sides of
   the picture.
 
-(c) GPL 2007 Karel 'Clock' Kulhavy of Twibright Labs
+© GPL 2007 Karel 'Clock' Kulhavy of Twibright Labs
 See COPYING for the text of the GPL license.
 e-mail: clock (at) twibright (dot) com
 Twibright Optar homepage: http://ronja.twibright.com/optar/
