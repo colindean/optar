@@ -1,5 +1,5 @@
 Twibright Optar
----------------
+===============
 
 [![Build Status](https://travis-ci.org/colindean/optar.png?branch=master)](https://travis-ci.org/colindean/optar)
 
@@ -97,7 +97,7 @@ CONSTANTS) in attempt to read a difficult recording: unsharp_mask,
 unsharp_dist, sync_white_cut, white_cut, minmax_filter, pixel_blur, cross_trim.
 
 Future improvement
-==================
+------------------
 - manpage could be written for optar and unoptar
 - commandline help (-h) could be written for optar and unoptar
 - the format could be made configurable. Now it's stored in the optar.h
@@ -109,7 +109,14 @@ Future improvement
   camera. Currently it cannot since digital camera blurs at the sides of
   the picture.
 
-© GPL 2007 Karel 'Clock' Kulhavy of Twibright Labs
-See COPYING for the text of the GPL license.
+Authorship and Licensing
+------------------------
+
+© GPL 2007 Karel 'Clock' Kulhavy of Twibright Labs. See COPYING for the text of the GPL license.
+
 e-mail: clock (at) twibright (dot) com
+
 Twibright Optar homepage: http://ronja.twibright.com/optar/
+
+**Special note:** The repository of optar at http://github.com/colindean/optar exists because I
+(@colindean) had difficulties finding the source and it seemed to be abandoned/dormant. 
