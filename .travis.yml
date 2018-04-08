@@ -3,11 +3,9 @@ language: c
 matrix:
   include:
     - os: linux
-      compiler:
-      - gcc
+      compiler: gcc
     - os: osx
-      compiler:
-      - clang
+      compiler: clang
 
 script: make -j
 before_deploy: make -j archive
