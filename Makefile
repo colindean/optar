@@ -5,10 +5,11 @@ ifeq ($(CC), gcc)
 else
   SPECIFIC_CFLAGS=
 endif
+INCLUDE_PATHS=$(shell libpng-config --I_opts)
 CFLAGS=-O3 -Wall -Wuninitialized \
        -fomit-frame-pointer -funroll-loops \
 			 $(SPECIFIC_CFLAGS) \
-	     -DNODEBUG `libpng-config --I_opts`
+	     -DNODEBUG $(INCLUDE_PATHS)
 
 VERSION=$(shell git describe)
 ARCHIVE_PATH=optar-$(VERSION).tar.gz
