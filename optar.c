@@ -16,7 +16,7 @@
 #define HEIGHT (2*BORDER+DATA_HEIGHT+TEXT_HEIGHT)
 #define TEXT_HEIGHT 24
 
-static unsigned char ary[WIDTH*HEIGHT];
+static unsigned char ary[WIDTH * HEIGHT];
 static unsigned char *file_label=(unsigned char *)""; /* The filename written in the
 					file_label */
 static char *output_filename; /* The output filename */
@@ -109,7 +109,7 @@ void border(void)
 	memset(ptr,0,BORDER*WIDTH);
 }
 
-void cross(x,y)
+void cross(int x, int y)
 {
 	unsigned char *ptr=ary+y*WIDTH+x;
 	unsigned c;
@@ -132,7 +132,7 @@ void crosses(void)
 }
 
 /* x is in the range 0 to DATA_WIDTH-1 */
-void text_block (destx, srcx, width)
+void text_block (int destx, int srcx, int width)
 {
 	int x, y;
 	unsigned char *srcptr;

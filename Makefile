@@ -1,7 +1,14 @@
 CC?=gcc
 LDFLAGS=-lm
-CFLAGS=-O3 -Wall -Wuninitialized -fomit-frame-pointer -funroll-loops \
-	-fstrength-reduce -DNODEBUG `libpng-config --I_opts`
+ifeq ($(CC), gcc)
+  SPECIFIC_CFLAGS=-fstrength-reduce
+else
+  SPECIFIC_CFLAGS=
+endif
+CFLAGS=-O3 -Wall -Wuninitialized \
+       -fomit-frame-pointer -funroll-loops \
+			 $(SPECIFIC_CFLAGS) \
+	     -DNODEBUG `libpng-config --I_opts`
 
 all: optar unoptar
 
