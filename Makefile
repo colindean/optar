@@ -59,3 +59,8 @@ golay: golay.o parity.o
 
 unoptar: unoptar.o common.o golay_codes.o parity.o
 	$(CC) -o $@ -L/usr/local/lib $^ -lm -lpng -lz
+
+archive: $(ARCHIVE_PATH)
+
+$(ARCHIVE_PATH): $(EXECUTABLES)
+	tar czvf $@ $^
