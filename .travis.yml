@@ -1,7 +1,14 @@
 language: c
-compiler:
-- clang
-- gcc
+
+matrix:
+  include:
+    - os: linux
+      compiler:
+      - gcc
+    - os: osx
+      compiler:
+      - clang
+
 script: make -j
 before_deploy: make -j archive
 deploy:
