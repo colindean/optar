@@ -12,7 +12,13 @@ CFLAGS=-O3 -Wall -Wuninitialized \
 	     -DNODEBUG $(INCLUDE_PATHS)
 
 VERSION=$(shell git describe)
-ARCHIVE_PATH=optar-$(VERSION).tar.gz
+ifdef TRAVIS_OS_NAME
+  OS=$(TRAVIS_OS_NAME)
+else
+  OS=$(shell uname -s)
+endif
+ARCH=$(shell uname -m)
+ARCHIVE_PATH=optar-$(VERSION)-$(OS)-$(ARCH).tar.gz
 BINARIES=optar unoptar
 EXECUTABLES=$(BINARIES) pgm2ps
 
