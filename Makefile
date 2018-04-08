@@ -22,6 +22,9 @@ ARCHIVE_PATH=optar-$(VERSION)-$(OS)-$(ARCH).tar.gz
 BINARIES=optar unoptar
 EXECUTABLES=$(BINARIES) pgm2ps
 
+ARCHIVE_PATH_TAR=$(ARCHIVE_PATH).tar
+ARCHIVE_PATH_PDF=$(ARCHIVE_PATH_TAR).pdf
+
 all: optar unoptar
 
 install:
@@ -36,6 +39,8 @@ uninstall:
 
 clean:
 	rm -f $(BINARIES) optar-*.tar.gz golay_codes.c *.o
+	rm -f $(ARCHIVE_PATH_PDF) $(ARCHIVE_PATH_TAR)
+	rm -f *.pgm *.ps
 
 common.o: common.c optar.h
 	$(CC) -c $(CPPFLAGS) $(CFLAGS) -o $@ $<
@@ -71,3 +76,12 @@ archive: $(ARCHIVE_PATH)
 
 $(ARCHIVE_PATH): $(EXECUTABLES) COPYING README.md
 	tar czvf $@ $^
+
+archive_pdf: $(ARCHIVE_PATH_PDF)
+
+$(ARCHIVE_PATH_PDF): $(ARCHIVE_PATH) optar
+#This is necessary because tar can be 0-padded and gzip cannot
+	tar cvf $(ARCHIVE_PATH_TAR) $<
+	./optar $(ARCHIVE_PATH_TAR) $(ARCHIVE_PATH_TAR)
+	./pgm2ps *.pgm
+	convert -density 600x600 -quality 100 *.ps $@
