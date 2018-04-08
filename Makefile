@@ -10,10 +10,6 @@ CFLAGS=-O3 -Wall -Wuninitialized \
 			 $(SPECIFIC_CFLAGS) \
 	     -DNODEBUG `libpng-config --I_opts`
 
-LIBPNG_PATH ?= /usr/local/include/libpng
-INCLUDES = $(LIBPNG_PATH)
-INCLUDES_CMD = $(foreach d, $(INCLUDES), -I$d)
-
 VERSION=$(shell git describe)
 ARCHIVE_PATH=optar-$(VERSION).tar.gz
 BINARIES=optar unoptar
@@ -50,7 +46,7 @@ golay.o: golay.c parity.h
 	$(CC) -c $(CPPFLAGS) $(CFLAGS) -o $@ $<
 
 unoptar.o: unoptar.c optar.h parity.h
-	$(CC) -c $(INCLUDES_CMD) $(CPPFLAGS) $(CFLAGS) -o $@ $<
+	$(CC) -c $(CPPFLAGS) $(CFLAGS) -o $@ $<
 
 optar: optar.o common.o golay_codes.o parity.o
 	$(CC) $(LDFLAGS) -o $@ $^
