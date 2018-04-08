@@ -1,5 +1,15 @@
 language: c
 compiler:
-    - clang
-    - gcc
-script: "make"
+- clang
+- gcc
+script: make -j
+before_deploy: make -j archive
+deploy:
+  provider: releases
+  api_key:
+    secure: mz4/p8VB7qn6F3M8uPT2/mJmU/nEWRGgsxN+KM/Gg1isSVrRpWP0xYfPTOdU6o9f0IVBRIW7SjHuq1H9kqGhmWx+Aycs8gE905ORYidLRjbkPN/fiS2jL6CcRzolkprvK7btIRhxfFGB/y3L0MELh+kXo1A6oIm+2a+OwNpdi4c=
+  file: optar-*.tar.gz
+  file_glob: true
+  on:
+    repo: colindean/optar
+    tags: true
