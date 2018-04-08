@@ -316,7 +316,7 @@ static double angle(double x, double y)
 {
 	double deg;
 
-	if (abs(x)>abs(y)){
+	if (fabs(x)>fabs(y)){
 		/* Horizontal */
 		deg=180/M_PI*asin(y);
 		if (x<0) deg=180-deg;

@@ -16,7 +16,7 @@
 #define HEIGHT (2*BORDER+DATA_HEIGHT+TEXT_HEIGHT)
 #define TEXT_HEIGHT 24
 
-static unsigned char ary[WIDTH*HEIGHT];
+static unsigned char ary[WIDTH * HEIGHT];
 static unsigned char *file_label=(unsigned char *)""; /* The filename written in the
 					file_label */
 static char *output_filename; /* The output filename */
