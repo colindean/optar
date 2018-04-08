@@ -69,5 +69,5 @@ unoptar: unoptar.o common.o golay_codes.o parity.o
 
 archive: $(ARCHIVE_PATH)
 
-$(ARCHIVE_PATH): $(EXECUTABLES) COPYING
+$(ARCHIVE_PATH): $(EXECUTABLES) COPYING README.md
 	tar czvf $@ $^
