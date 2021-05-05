@@ -70,7 +70,7 @@ golay: golay.o parity.o
 	$(CC) $(LDFLAGS) -o $@ $^
 
 unoptar: unoptar.o common.o golay_codes.o parity.o
-	$(CC) -o $@ -L/usr/local/lib $^ -lm -lpng -lz
+	$(CC) -o $@ -L/usr/local/lib -L/opt/homebrew/lib $^ -lm -lpng -lz
 
 archive: $(ARCHIVE_PATH)
 
